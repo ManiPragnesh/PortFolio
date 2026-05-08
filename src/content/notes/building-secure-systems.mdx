@@ -1,0 +1,45 @@
+---
+title: "Building Secure Systems in Go"
+date: "2024-03-15"
+readingTime: "5 min read"
+excerpt: "An exploration into building high-availability secure backends."
+---
+
+# Building Secure Systems in Go
+
+When architecting a secure system, the choice of language can dictate the baseline security posture. Go's strong typing, garbage collection, and concurrency primitives make it an excellent choice for networked services.
+
+## The Mental Model
+
+Security isn't something you bolt on; it's a fundamental property of the system's architecture. 
+
+```go
+package main
+
+import (
+    "log"
+    "net/http"
+)
+
+func secureHandler(w http.ResponseWriter, r *http.Request) {
+    // Implement robust validation here
+    w.Header().Set("Strict-Transport-Security", "max-age=63072000; includeSubDomains")
+    w.Write([]byte("Secure response"))
+}
+
+func main() {
+    mux := http.NewServeMux()
+    mux.HandleFunc("/", secureHandler)
+    log.Fatal(http.ListenAndServeTLS(":443", "cert.pem", "key.pem", mux))
+}
+```
+
+> "Complexity is the worst enemy of security." - Bruce Schneier
+
+### Defense in Depth
+
+1. **Network Level**: VPCs, Security Groups, eBPF filtering.
+2. **Application Level**: Strict input validation, zero-trust internal APIs.
+3. **Data Level**: Encryption at rest, ephemeral key rotation.
+
+By adhering to these principles, we can dramatically reduce the attack surface.
