@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, FileText, Globe } from "lucide-react";
+import { Mail, FileText, Globe, Phone } from "lucide-react";
  
 function GithubIcon(props: any) {
   return (
@@ -48,6 +48,7 @@ export function Connect() {
     { name: "GitHub", icon: GithubIcon, href: "https://github.com/ManiPragnesh", color: "hover:text-white" },
     { name: "LinkedIn", icon: LinkedinIcon, href: "https://linkedin.com/in/ajjarapu-mani-pragnesh", color: "hover:text-[#0a66c2]" },
     { name: "Email", icon: Mail, href: "mailto:ajjarapumanipragnesh@gmail.com", color: "hover:text-[#00f0ff]" },
+    { name: "Phone", icon: Phone, href: "tel:+917989702604", color: "hover:text-[#00f0ff]" },
     { name: "Portfolio", icon: Globe, href: "https://mani-pragnesh.vercel.app", color: "hover:text-[#00f0ff]" },
     { name: "Resume", icon: FileText, href: "https://drive.google.com/file/d/1ChQvYTEZeXedW0lU-fh1SwcxARQ72IPR/view?usp=sharing", color: "hover:text-[#ff5e00]" },
   ];
