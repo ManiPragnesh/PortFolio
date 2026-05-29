@@ -69,7 +69,7 @@ export function Connect() {
         >
           <h2 className="text-3xl sm:text-4xl font-bold font-sans text-white mb-2">AJJARAPU MANI PRAGNESH</h2>
           <p className="text-white/40 font-mono text-sm tracking-wider uppercase">AI & ML Engineer</p>
-          <p className="text-[#00f0ff]/80 font-mono text-xs tracking-wide mt-2">Available for internships and full-time roles from 2027</p>
+          <p className="text-[#00f0ff]/80 font-mono text-xs tracking-wide mt-2">Open to Data Analytics, ML Engineering, and AI roles — Ready to contribute.</p>
         </motion.div>
 
         <motion.div 
