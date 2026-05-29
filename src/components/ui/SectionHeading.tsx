@@ -19,15 +19,6 @@ export function SectionHeading({ number, title, subtitle, className }: SectionHe
   return (
     <div className={cn("flex flex-col mb-16", className)}>
       <div className="flex items-end gap-4 mb-4 overflow-hidden">
-        <motion.span
-          initial={{ y: "100%" }}
-          whileInView={{ y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-2xl md:text-3xl font-sans text-[#ff5e00] opacity-80"
-        >
-          {number}
-        </motion.span>
         <motion.h2
           initial={{ y: "100%" }}
           whileInView={{ y: 0 }}
