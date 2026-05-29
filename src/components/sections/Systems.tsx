@@ -1,9 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { SectionHeading } from "../ui/SectionHeading";
 import { Database, Activity, Smile, Network, Car } from "lucide-react";
- 
+
 function Github(props: any) {
   return (
     <svg
@@ -22,7 +23,7 @@ function Github(props: any) {
     </svg>
   );
 }
- 
+
 const projects = [
   {
     id: "hospital",
@@ -75,98 +76,134 @@ const projects = [
     link: "https://github.com/ManiPragnesh/Smart-Panchayat"
   }
 ];
- 
+
 export function Systems() {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start center", "end center"]
+  });
+
+  const lineHeight = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
   return (
-    <section id="systems" className="relative min-h-screen py-32 px-4 md:px-8 max-w-7xl mx-auto">
+    <section id="systems" className="relative min-h-screen py-32 px-4 md:px-8 max-w-7xl mx-auto" ref={containerRef}>
       <SectionHeading 
         number="02" 
         title="Selected Work" 
         subtitle="Engineered systems, models, and real-world implementations." 
       />
- 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mt-16">
-        {projects.map((project, index) => {
-          const Icon = project.icon;
-          return (
-            <motion.a
-              href={project.link}
-              key={project.id}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.7, delay: index * 0.1, ease: "easeOut" }}
-              className="group relative block w-full rounded-3xl bg-[#0a0a0a] border border-white/10 overflow-hidden"
-            >
-              {/* Hover Glow Background */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${project.accent}/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
-              
-              {/* Visual Mockup Area (Futuristic Dashboards) */}
-              <div className="relative h-64 w-full border-b border-white/10 overflow-hidden bg-black/50">
-                {/* Abstract Data Visuals simulating a dashboard */}
-                <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-40 group-hover:opacity-100 transition-opacity duration-500">
-                  <motion.div 
-                    className="w-full h-full flex items-end gap-2"
-                    initial={false}
+
+      <div className="relative mt-24 max-w-5xl mx-auto">
+        {/* The Path Base */}
+        <div className="absolute top-0 bottom-0 left-4 md:left-1/2 md:-translate-x-1/2 w-px bg-white/10" />
+        
+        {/* The Glowing Path */}
+        <motion.div 
+          style={{ height: lineHeight }}
+          className="absolute top-0 left-4 md:left-1/2 md:-translate-x-1/2 w-[2px] bg-gradient-to-b from-[#00f0ff] via-[#ff5e00] to-[#00f0ff] shadow-[0_0_15px_rgba(0,240,255,0.6)]"
+        />
+
+        <div className="space-y-24">
+          {projects.map((project, index) => {
+            const Icon = project.icon;
+            const isEven = index % 2 === 0;
+            return (
+              <div key={project.id} className="relative flex items-center md:justify-between w-full">
+                
+                {/* Node Dot */}
+                <motion.div 
+                  initial={{ scale: 0 }}
+                  whileInView={{ scale: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-black border-2 border-[#00f0ff] z-10"
+                />
+
+                {/* Content Card Wrapper */}
+                <motion.div 
+                  initial={{ opacity: 0, x: isEven ? -50 : 50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7 }}
+                  className={`w-full md:w-[45%] pl-12 md:pl-0 ${isEven ? "md:mr-auto md:pr-8" : "md:ml-auto md:pl-8"}`}
+                >
+                  <motion.a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative block w-full rounded-3xl bg-[#0a0a0a] border border-white/10 overflow-hidden"
                   >
-                    {[...Array(12)].map((_, i) => (
-                      <motion.div 
-                        key={i}
-                        className={`flex-1 bg-gradient-to-t ${project.accent} to-transparent rounded-t-sm`}
-                        initial={{ height: "10%" }}
-                        whileInView={{ height: `${20 + Math.random() * 80}%` }}
-                        transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", delay: i * 0.1 }}
-                      />
-                    ))}
-                  </motion.div>
-                </div>
-                
-                {/* Centered Icon */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <Icon className="w-20 h-20 text-white/10 group-hover:text-white/30 transition-colors duration-500" strokeWidth={1} />
-                </div>
+                    {/* Hover Glow Background */}
+                    <div className={`absolute inset-0 bg-gradient-to-br ${project.accent}/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none`} />
+                    
+                    {/* Visual Mockup Area (Futuristic Dashboards) */}
+                    <div className="relative h-48 w-full border-b border-white/10 overflow-hidden bg-black/50">
+                      {/* Abstract Data Visuals simulating a dashboard */}
+                      <div className="absolute inset-0 flex flex-col justify-end p-6 opacity-40 group-hover:opacity-100 transition-opacity duration-500">
+                        <motion.div 
+                          className="w-full h-full flex items-end gap-2"
+                          initial={false}
+                        >
+                          {[...Array(12)].map((_, i) => (
+                            <motion.div 
+                              key={i}
+                              className={`flex-1 bg-gradient-to-t ${project.accent} to-transparent rounded-t-sm`}
+                              initial={{ height: "10%" }}
+                              whileInView={{ height: `${20 + Math.random() * 80}%` }}
+                              transition={{ duration: 2, repeat: Infinity, repeatType: "reverse", delay: i * 0.1 }}
+                            />
+                          ))}
+                        </motion.div>
+                      </div>
+                      
+                      {/* Centered Icon */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <Icon className="w-16 h-16 text-white/10 group-hover:text-white/30 transition-colors duration-500" strokeWidth={1} />
+                      </div>
+                    </div>
+
+                    {/* Content Area */}
+                    <div className="p-6 relative z-10">
+                      <div className="flex justify-between items-start mb-3">
+                        <div>
+                          <span className="text-xs font-mono text-white/50 tracking-wider uppercase mb-1 block">
+                            {project.category}
+                          </span>
+                          <h3 className="text-2xl font-bold font-sans text-white group-hover:text-[#00f0ff] transition-colors duration-300">
+                            {project.title}
+                          </h3>
+                        </div>
+                        <Github className="w-5 h-5 text-white/30 group-hover:text-white transition-colors duration-300 transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+                      </div>
+                      
+                      <p className="text-white/60 font-serif text-sm leading-relaxed mb-6">
+                        {project.description}
+                      </p>
+
+                      <div className="flex items-center justify-between mt-auto">
+                        <div className="flex flex-wrap gap-1.5">
+                          {project.stack.map(tech => (
+                            <span 
+                              key={tech} 
+                              className="px-2.5 py-0.5 text-[10px] font-mono text-white/70 bg-white/5 rounded-full border border-white/10 group-hover:border-white/30 transition-colors duration-300"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                        <div className="flex items-center gap-1.5 text-xs font-mono text-[#00f0ff] bg-[#00f0ff]/5 border border-[#00f0ff]/20 px-2.5 py-0.5 rounded-full opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+                          <Github className="w-3 h-3" />
+                          <span>Repo</span>
+                        </div>
+                      </div>
+                    </div>
+                  </motion.a>
+                </motion.div>
               </div>
- 
-              {/* Content Area */}
-              <div className="p-8 relative z-10">
-                <div className="flex justify-between items-start mb-4">
-                  <div>
-                    <span className="text-xs font-mono text-white/50 tracking-wider uppercase mb-2 block">
-                      {project.category}
-                    </span>
-                    <h3 className="text-3xl font-bold font-sans text-white group-hover:text-[#00f0ff] transition-colors duration-300">
-                      {project.title}
-                    </h3>
-                  </div>
-                  <Github className="w-6 h-6 text-white/30 group-hover:text-white transition-colors duration-300 transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </div>
-                
-                <p className="text-white/60 font-serif leading-relaxed mb-8">
-                  {project.description}
-                </p>
- 
-                <div className="flex items-center justify-between mt-auto">
-                  <div className="flex flex-wrap gap-2">
-                    {project.stack.map(tech => (
-                      <span 
-                        key={tech} 
-                        className="px-3 py-1 text-xs font-mono text-white/70 bg-white/5 rounded-full border border-white/10 group-hover:border-white/30 transition-colors duration-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-1.5 text-xs font-mono text-[#00f0ff] bg-[#00f0ff]/5 border border-[#00f0ff]/20 px-3 py-1 rounded-full opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                    <Github className="w-3.5 h-3.5" />
-                    <span>Repo</span>
-                  </div>
-                </div>
-              </div>
-            </motion.a>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
     </section>
   );
