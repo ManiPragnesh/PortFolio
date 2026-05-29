@@ -67,8 +67,8 @@ export function Hero() {
           transition={{ duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
           className="space-y-6 flex flex-col items-center"
         >
-          <p className="text-xl md:text-2xl font-serif text-white/80 max-w-3xl leading-relaxed">
-            ML project experience <span className="text-[#00f0ff]">+</span> Data Analysis capability <span className="text-[#ff5e00]">+</span> fresher bridging technical and analytical sides
+          <p className="text-xl md:text-3xl font-serif text-white/80 max-w-3xl leading-relaxed">
+            CSE AI & ML Student <span className="text-[#00f0ff]">—</span> 2027
           </p>
           
           <div className="flex flex-col sm:flex-row items-center gap-4 mt-12">
