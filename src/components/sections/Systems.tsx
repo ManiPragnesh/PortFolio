@@ -90,8 +90,7 @@ export function Systems() {
     <section id="systems" className="relative min-h-screen py-32 px-4 md:px-8 max-w-7xl mx-auto" ref={containerRef}>
       <SectionHeading 
         number="02" 
-        title="Selected Work" 
-        subtitle="Engineered systems, models, and real-world implementations." 
+        title="Projects" 
       />
 
       <div className="relative mt-24 max-w-5xl mx-auto">
