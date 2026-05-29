@@ -49,7 +49,7 @@ export function Connect() {
     { name: "LinkedIn", icon: LinkedinIcon, href: "https://linkedin.com/in/ajjarapu-mani-pragnesh", color: "hover:text-[#0a66c2]" },
     { name: "Email", icon: Mail, href: "mailto:ajjarapumanipragnesh@gmail.com", color: "hover:text-[#00f0ff]" },
     { name: "Portfolio", icon: Globe, href: "https://mani-pragnesh.vercel.app", color: "hover:text-[#00f0ff]" },
-    { name: "Resume", icon: FileText, href: "/resume.pdf", color: "hover:text-[#ff5e00]" },
+    { name: "Resume", icon: FileText, href: "https://drive.google.com/file/d/1ChQvYTEZeXedW0lU-fh1SwcxARQ72IPR/view?usp=sharing", color: "hover:text-[#ff5e00]" },
   ];
  
   return (

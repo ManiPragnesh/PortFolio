@@ -126,7 +126,7 @@ export function Profile() {
             </div>
 
             <div className="mt-12 pt-8 border-t border-white/10">
-              <Button variant="primary" href="/resume.pdf" className="w-full flex items-center justify-center gap-2">
+              <Button variant="primary" href="https://drive.google.com/file/d/1ChQvYTEZeXedW0lU-fh1SwcxARQ72IPR/view?usp=sharing" className="w-full flex items-center justify-center gap-2">
                 <Download className="w-4 h-4" /> Download Resume (PDF)
               </Button>
             </div>
