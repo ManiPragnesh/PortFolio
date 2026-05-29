@@ -51,6 +51,15 @@ export function Identity() {
             >
               My philosophy is simple: <em className="text-[#00f0ff] not-italic">Build intelligently, deploy reliably.</em> The modern landscape requires engineers who can bridge the gap between complex algorithms and practical, user-facing applications.
             </motion.p>
+            <motion.p
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="text-base md:text-lg font-mono text-[#00f0ff]/80"
+            >
+              Open to Data Analytics, ML Engineering, and AI roles — 2027 batch
+            </motion.p>
           </div>
         </div>
 

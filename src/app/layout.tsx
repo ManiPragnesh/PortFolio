@@ -16,7 +16,7 @@ const palatinoFallback = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "MP | Systems Engineer",
+  title: "MP | AI & ML Engineer",
   description: "Building secure, scalable, and intelligent systems. Portfolio of MP.",
 };
 

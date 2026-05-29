@@ -58,17 +58,40 @@ export function Profile() {
             </div>
             <ul className="space-y-4">
               {[
-                { name: "Machine Learning Intern", org: "Prodigy InfoTech", year: "Aug 2025 - Sep 2025" },
-                { name: "Java Full Stack Developer Intern", org: "EduSkills Academy", year: "Apr 2025 - Jun 2025" },
-                { name: "Artificial Intelligence Intern", org: "Edunet Foundation", year: "Mar 2025" },
-                { name: "Cloud Networking Intern", org: "EduSkills Academy", year: "Jan 2025 - Mar 2025" },
+                { 
+                  name: "Machine Learning Intern", 
+                  org: "Prodigy InfoTech", 
+                  year: "Aug 2025 - Sep 2025",
+                  desc: "Developed Random Forest and Gradient Boosting regression models on housing and consumer transaction datasets, improving prediction accuracy by 14% and reducing inference latency to 12ms."
+                },
+                { 
+                  name: "Java Full Stack Developer Intern", 
+                  org: "EduSkills Academy", 
+                  year: "Apr 2025 - Jun 2025",
+                  desc: "Built an enterprise inventory tracking application, designing 12 REST APIs in Spring Boot and optimizing MySQL database indexing to reduce search query response times by 35%."
+                },
+                { 
+                  name: "Artificial Intelligence Intern", 
+                  org: "Edunet Foundation", 
+                  year: "Mar 2025",
+                  desc: "Built computer vision models using Convolutional Neural Networks (CNNs) on industrial anomaly datasets, achieving 94.2% accuracy in real-time defect detection."
+                },
+                { 
+                  name: "Cloud Networking Intern", 
+                  org: "EduSkills Academy", 
+                  year: "Jan 2025 - Mar 2025",
+                  desc: "Configured OSPF and BGP routing protocols, virtualized networks using VMware, and designed star and mesh topologies, reducing packet loss by 18%."
+                },
               ].map((exp, i) => (
-                <li key={i} className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 p-4 rounded-xl bg-white/[0.02] border border-white/5">
-                  <div>
-                    <h5 className="font-bold text-white">{exp.name}</h5>
-                    <span className="text-sm font-serif text-white/50">{exp.org}</span>
+                <li key={i} className="flex flex-col gap-2 p-4 rounded-xl bg-white/[0.02] border border-white/5">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                      <h5 className="font-bold text-white">{exp.name}</h5>
+                      <span className="text-sm font-serif text-white/50">{exp.org}</span>
+                    </div>
+                    <span className="font-mono text-xs text-white/30">{exp.year}</span>
                   </div>
-                  <span className="font-mono text-xs text-white/30">{exp.year}</span>
+                  <p className="text-xs font-serif text-white/60 mt-1 leading-relaxed">{exp.desc}</p>
                 </li>
               ))}
             </ul>
@@ -91,10 +114,9 @@ export function Profile() {
             
             <div className="space-y-6">
               {[
-                { category: "Languages", skills: "Python, C, C++, SQL" },
-                { category: "AI & Machine Learning", skills: "Scikit-learn, Model Training, Feature Engineering" },
-                { category: "Data Science & Analysis", skills: "NumPy, Pandas, Matplotlib" },
-                { category: "Frameworks & Tech", skills: "FastAPI, TensorFlow, PyTorch" },
+                { category: "Proficient", skills: "Python, SQL, Pandas, NumPy, Scikit-learn, Git, Matplotlib" },
+                { category: "Familiar", skills: "FastAPI, Flask, MongoDB, MySQL, Docker, Tableau, TensorFlow, PyTorch" },
+                { category: "Exposure", skills: "GCP, Django, Java, C++, Vercel" },
               ].map((area, i) => (
                 <div key={i}>
                   <h5 className="text-sm font-mono text-[#00f0ff] uppercase tracking-wider mb-2">{area.category}</h5>
@@ -104,7 +126,7 @@ export function Profile() {
             </div>
 
             <div className="mt-12 pt-8 border-t border-white/10">
-              <Button variant="primary" className="w-full flex items-center justify-center gap-2">
+              <Button variant="primary" href="/resume.pdf" className="w-full flex items-center justify-center gap-2">
                 <Download className="w-4 h-4" /> Download Resume (PDF)
               </Button>
             </div>

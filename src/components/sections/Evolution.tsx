@@ -7,9 +7,9 @@ import { SectionHeading } from "../ui/SectionHeading";
 const milestones = [
   { year: "2021", title: "Foundational Years", desc: "Completed early academics with a strong focus on mathematics and sciences, laying the groundwork for logical problem-solving." },
   { year: "2023", title: "Entering Computer Science", desc: "Began B.Tech in Computer Science at SRM Institute of Science and Technology, specializing in Artificial Intelligence & Machine Learning." },
-  { year: "Early 2025", title: "Cloud & AI Immersion", desc: "Completed intensive internships in Cloud Networking (Juniper) and AI (Microsoft & SAP), gaining hands-on exposure to infrastructure and supervised learning." },
-  { year: "Mid 2025", title: "Full Stack Development", desc: "Worked as a Java Full Stack Developer Intern, building end-to-end web applications, designing REST APIs, and integrating databases." },
-  { year: "Late 2025", title: "Machine Learning Focus", desc: "Applied ML algorithms to real-world datasets during a Machine Learning internship at Prodigy InfoTech, focusing on feature engineering and model training." }
+  { year: "Early 2025", title: "Cloud & AI Immersion", desc: "Configured OSPF and BGP routing protocols, virtualized networks using VMware, and designed star and mesh topologies, reducing packet loss by 18%." },
+  { year: "Mid 2025", title: "Full Stack Development", desc: "Built an enterprise inventory tracking application, designing 12 REST APIs in Spring Boot and optimizing MySQL database indexing to reduce search query response times by 35%." },
+  { year: "Late 2025", title: "Machine Learning Focus", desc: "Developed Random Forest and Gradient Boosting regression models on housing and consumer transaction datasets, improving prediction accuracy by 14% and reducing inference latency to 12ms." }
 ];
 
 export function Evolution() {

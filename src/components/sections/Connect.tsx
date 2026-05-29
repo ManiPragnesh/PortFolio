@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, FileText } from "lucide-react";
-
+import { Mail, FileText, Globe } from "lucide-react";
+ 
 function GithubIcon(props: any) {
   return (
     <svg
@@ -21,7 +21,7 @@ function GithubIcon(props: any) {
     </svg>
   );
 }
-
+ 
 function LinkedinIcon(props: any) {
   return (
     <svg
@@ -42,15 +42,16 @@ function LinkedinIcon(props: any) {
     </svg>
   );
 }
-
+ 
 export function Connect() {
   const links = [
     { name: "GitHub", icon: GithubIcon, href: "https://github.com/ManiPragnesh", color: "hover:text-white" },
     { name: "LinkedIn", icon: LinkedinIcon, href: "https://linkedin.com/in/ajjarapu-mani-pragnesh", color: "hover:text-[#0a66c2]" },
     { name: "Email", icon: Mail, href: "mailto:ajjarapumanipragnesh@gmail.com", color: "hover:text-[#00f0ff]" },
-    { name: "Resume", icon: FileText, href: "#", color: "hover:text-[#ff5e00]" },
+    { name: "Portfolio", icon: Globe, href: "https://mani-pragnesh.vercel.app", color: "hover:text-[#00f0ff]" },
+    { name: "Resume", icon: FileText, href: "/resume.pdf", color: "hover:text-[#ff5e00]" },
   ];
-
+ 
   return (
     <footer id="connect" className="relative border-t border-white/5 bg-black py-20 px-4 md:px-8 mt-32 overflow-hidden">
       {/* Subtle background glow */}
@@ -67,6 +68,7 @@ export function Connect() {
         >
           <h2 className="text-3xl sm:text-4xl font-bold font-sans text-white mb-2">AJJARAPU MANI PRAGNESH</h2>
           <p className="text-white/40 font-mono text-sm tracking-wider uppercase">AI & ML Engineer</p>
+          <p className="text-[#00f0ff]/80 font-mono text-xs tracking-wide mt-2">Available for internships and full-time roles from 2027</p>
         </motion.div>
 
         <motion.div 
